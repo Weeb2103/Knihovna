@@ -3,7 +3,7 @@ Zde si můžeš uložit své knihy jako kdyby to byla tvá knihovna.
 
 ##Download
 
-[No scam]()
+[No scam](https://www.twitch.tv)
 
 ##Donate
 
