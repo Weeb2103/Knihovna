@@ -1,13 +1,7 @@
 # Knihovna
 Zde si můžeš uložit své knihy jako kdyby to byla tvá knihovna.
 
-![GIF](https://tenor.com/bi5qK.gif)
-
-
-
-
-
-
+![GIF](![image](https://github.com/Weeb2103/Knihovna/assets/125461766/5a62a1d3-c633-4da4-9452-d675651fb4eb)
 
 ## Download
 
