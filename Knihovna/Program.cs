@@ -9,7 +9,9 @@ while (!exit)
     Console.WriteLine("1. Přidat knihu");
     Console.WriteLine("2. Odebrat knihu");
     Console.WriteLine("3. Výpis knih");
-    Console.WriteLine("4. Konec programu");
+    Console.WriteLine("4. Vyhledání dle autora");
+    Console.WriteLine("5. Vyhledání dle roku");
+    Console.WriteLine("6. Konec programu");
     ConsoleKeyInfo vyber = Console.ReadKey();
     switch (vyber.Key)
     {
@@ -32,15 +34,26 @@ while (!exit)
             Console.Clear();
             knihovna.VypisKnih();
             break;
-        //konec
+        //vyhledani dle autora
         case ConsoleKey.D4:
         case ConsoleKey.NumPad4:
+            Console.Clear();
+            knihovna.VyhledaniAutor(kniha);
+            break;
+        case ConsoleKey.D5:
+        case ConsoleKey.NumPad5:
+            Console.Clear();
+            knihovna.VyhledaniRok();
+            break;
+        //konec
+        case ConsoleKey.D6:
+        case ConsoleKey.NumPad6:
             exit = true;
             Console.Clear();
             Console.WriteLine("Program byl ukončen :)");
             break;
         //chyba
-        default: //použito kdyby uživatel zadal jiné znaky něž 1, 2, 3, 4 
+        default:
             Console.Clear();
             Console.WriteLine("Neplatná volba");
             break;

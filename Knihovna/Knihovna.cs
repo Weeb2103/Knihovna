@@ -11,7 +11,7 @@ namespace Knihovna_knih
         private List<Kniha> knihy = new List<Kniha>();
         public void PridatKnihy()
         {
-             Kniha kniha= new Kniha();
+            Kniha kniha = new Kniha();
             try
             {
                 Console.Write("Napiš název:");
@@ -24,24 +24,24 @@ namespace Knihovna_knih
                 Console.Clear();
                 Console.WriteLine($"{kniha.Nazev} byl přidán");
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-             Console.WriteLine("Chyba při přidávání produktu: " + ex.Message);
+                Console.WriteLine("Chyba při přidávání produktu: " + ex.Message);
             }
         }
         public void OdebratKnihu()
         {
             try
             {
-                znovu:
+            znovu:
                 foreach (Kniha kniha in knihy)
                 {
-                    Console.WriteLine($"{(knihy.IndexOf(kniha) + 1)}) {kniha.Nazev} - {kniha.Autor} - {kniha.Rok}"); 
+                    Console.WriteLine($"{(knihy.IndexOf(kniha) + 1)}) {kniha.Nazev} - {kniha.Autor} - {kniha.Rok}");
                 }
                 Console.WriteLine("--------------------------");
                 Console.WriteLine("Napiš číslo řádku produktu který chceš odebrat a ukonči odebírání pomocí čísla 777");
                 int indexListu = int.Parse(Console.ReadLine()) - 1;
-                if (indexListu == 777); 
+                if (indexListu == 777) ;
                 else
                     knihy.RemoveAt(indexListu);
                 Console.Clear();
@@ -56,12 +56,19 @@ namespace Knihovna_knih
         {
             Console.WriteLine("Výpis knih");
             Console.WriteLine("-------------");
-            foreach(Kniha kniha in knihy)
+            foreach (Kniha kniha in knihy)
             {
                 Console.WriteLine($"{(knihy.IndexOf(kniha) + 1)}) {kniha.Nazev} - {kniha.Autor} - {kniha.Rok}");
             }
 
         }
+        public void VyhledaniAutor(Kniha kniha)
+        {
+            try
+            {
+                Console.Write("Zadej autora: ");
+                string hledanyAutor = Console.ReadLine();
+                List<Kniha> nalezenyAutor = knihy.FindAll(kniha => kniha.Contains(hledanyAutor));
 
 
 
@@ -69,19 +76,7 @@ namespace Knihovna_knih
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            }
+        }
     }
-}
+}         
