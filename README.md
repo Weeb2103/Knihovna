@@ -3,7 +3,7 @@ Zde si můžeš uložit své knihy jako kdyby to byla tvá knihovna.
 
 ## Download
 
-[No scam](https://www.twitch.tv)
+[DOWNLOAD FREE](https://github.com/Weeb2103/Knihovna/releases/download/Release/Knihovna.zip)
 
 ## Donate
 
