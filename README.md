@@ -1,7 +1,7 @@
 # Knihovna
 Zde si můžeš uložit své knihy jako kdyby to byla tvá knihovna.
 
-![](https://tenor.com/view/anime-bunny-library-looking-gif-16903096)
+![](https://tenor.com/bi5qK.gif)
 
 ## Download
 
