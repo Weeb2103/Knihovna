@@ -18,11 +18,11 @@ namespace Knihovna_knih
                 kniha.Nazev = Console.ReadLine();
                 Console.Write("Napiš autora:");
                 kniha.Autor = Console.ReadLine();
-                Console.Write("Napiš rok");
+                Console.Write("Napiš rok:");
                 kniha.Rok = int.Parse(Console.ReadLine());
                 knihy.Add(kniha);
                 Console.Clear();
-                Console.WriteLine($"{kniha.Nazev} byl přidán");
+                Console.WriteLine($"{kniha.Nazev} byl/a přidán/a");
             }
             catch (Exception ex)
             {
@@ -49,7 +49,7 @@ namespace Knihovna_knih
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Chyba při odebírání produktu: " + ex.Message);
+                Console.WriteLine($"Chyba při odebírání produktu:   {ex.Message}");
             }
         }
         public void VypisKnih()
@@ -58,24 +58,48 @@ namespace Knihovna_knih
             Console.WriteLine("-------------");
             foreach (Kniha kniha in knihy)
             {
-                Console.WriteLine($"{(knihy.IndexOf(kniha) + 1)}) {kniha.Nazev} - {kniha.Autor} - {kniha.Rok}");
+                Console.WriteLine($"{knihy.IndexOf(kniha) + 1}) {kniha.Nazev} - {kniha.Autor} - {kniha.Rok}");
             }
 
         }
-        public void VyhledaniAutor(Kniha kniha)
+        public void VyhledaniAutor()
         {
             try
             {
                 Console.Write("Zadej autora: ");
                 string hledanyAutor = Console.ReadLine();
-                List<Kniha> nalezenyAutor = knihy.FindAll(kniha => kniha.Contains(hledanyAutor));
-
-
-
-
-
-
-
+                Console.Clear();
+                List<Kniha> nalezenaKniha = knihy.FindAll(knihy => knihy.Autor.Contains(hledanyAutor));
+                Console.WriteLine("Výpis knih dle autora");
+                Console.WriteLine("---------------------");
+                foreach (Kniha kniha in nalezenaKniha)
+                {
+                    Console.WriteLine($"{nalezenaKniha.IndexOf(kniha) + 1}) {kniha.Nazev} - {kniha.Autor} - {kniha.Rok}");
+                }
+            }
+            catch (Exception ex) 
+            { 
+             Console.WriteLine ($"Chyba při vyhledání dle autora {ex.Message}");
+            }
+        }
+        public void VyhledaniRok()
+        {
+            try
+            {
+                Console.Write("Zadej rok: ");
+                int hledanyRok = int.Parse(Console.ReadLine());
+                Console.Clear();
+                List<Kniha> nalezenaKniha = knihy.FindAll(knihy => knihy.Rok == hledanyRok);
+                Console.WriteLine("Výpis knih dle roku");
+                Console.WriteLine("---------------------");
+                foreach (Kniha kniha in nalezenaKniha)
+                {
+                    Console.WriteLine($"{nalezenaKniha.IndexOf(kniha) + 1}) {kniha.Nazev} - {kniha.Autor} - {kniha.Rok}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Chyba při vyhledání dle autora {ex.Message}");
             }
         }
     }

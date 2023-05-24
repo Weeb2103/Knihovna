@@ -38,7 +38,7 @@ while (!exit)
         case ConsoleKey.D4:
         case ConsoleKey.NumPad4:
             Console.Clear();
-            knihovna.VyhledaniAutor(kniha);
+            knihovna.VyhledaniAutor();
             break;
         case ConsoleKey.D5:
         case ConsoleKey.NumPad5:
