@@ -150,7 +150,6 @@ namespace Knihovna_knih
             {
                 if (File.Exists(nazevSouboru))
                 {
-                    knihy.Clear();
                     using (StreamReader sr = new StreamReader(nazevSouboru))
                     {
                         string radek;
