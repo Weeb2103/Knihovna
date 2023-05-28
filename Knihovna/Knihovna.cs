@@ -160,9 +160,8 @@ namespace Knihovna_knih
                             {
                                 string nazev = polozky[0];
                                 string autor = polozky[1];
-                                int rok;
-                                if (int.TryParse(polozky[2], out rok))
-                                {
+                                int rok = int.Parse(polozky[2]);                               
+                                
                                     Kniha kniha = new Kniha
                                     {
                                         Nazev = nazev,
@@ -170,7 +169,7 @@ namespace Knihovna_knih
                                         Rok = rok
                                     };
                                     knihy.Add(kniha);
-                                }
+                                
                             }
                         }
                     }
