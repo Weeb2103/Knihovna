@@ -34,19 +34,24 @@ namespace Knihovna_knih
         {
             try
             {
-            znovu:
+             znovu:
                 foreach (Kniha kniha in knihy)
                 {
                     Console.WriteLine($"{(knihy.IndexOf(kniha) + 1)}) {kniha.Nazev} - {kniha.Autor} - {kniha.Rok}");
                 }
                 Console.WriteLine("--------------------------");
-                Console.WriteLine("Napiš číslo řádku produktu který chceš odebrat a ukonči odebírání pomocí čísla 777");
+                Console.WriteLine("Napiš číslo řádku produktu který chceš odebrat a ukonči odebírání pomocí čísla 0");
                 int indexListu = int.Parse(Console.ReadLine()) - 1;
-                if (indexListu == 777);
-                else
+                if (indexListu == 0)
+                {
+                    return;
+                }
+                else 
+                {
                     knihy.RemoveAt(indexListu);
-                Console.Clear();
-                goto znovu;
+                    Console.Clear();
+                    goto znovu;
+                }                   
             }
             catch (Exception ex)
             {
