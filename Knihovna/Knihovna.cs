@@ -42,7 +42,7 @@ namespace Knihovna_knih
                 Console.WriteLine("--------------------------");
                 Console.WriteLine("Napiš číslo řádku produktu který chceš odebrat a ukonči odebírání pomocí čísla 777");
                 int indexListu = int.Parse(Console.ReadLine()) - 1;
-                if (indexListu == 777) ;
+                if (indexListu == 777);
                 else
                     knihy.RemoveAt(indexListu);
                 Console.Clear();
@@ -67,11 +67,11 @@ namespace Knihovna_knih
         {
             try
             {
-                Console.Write("Zadej autora: ");
+                Console.Write("Zadej název: ");
                 string hledanyNazev = Console.ReadLine();
                 Console.Clear();
                 List<Kniha> nalezenyNazev = knihy.FindAll(knihy => knihy.Nazev.Contains(hledanyNazev));
-                Console.WriteLine("Výpis knih dle autora");
+                Console.WriteLine("Výpis knih dle názvu");
                 Console.WriteLine("---------------------");
                 foreach (Kniha kniha in nalezenyNazev)
                 {
