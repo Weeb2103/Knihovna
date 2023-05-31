@@ -1,8 +1,8 @@
 ﻿using Knihovna_knih;
 bool exit = false;
 Knihovna knihovna = new Knihovna();
-string nazevSouboru = "seznam_knih.txt";
-knihovna.Nacteni(nazevSouboru);
+string nazevSouboru = "seznam_knih.txt"; //nazev souboru kde je vse ulozeno
+knihovna.Nacteni(nazevSouboru); //nacte se list z minula
 while (!exit)
 {
     Console.WriteLine("------------------------");
@@ -14,9 +14,9 @@ while (!exit)
     Console.WriteLine("4. Vyhledání dle názvu");
     Console.WriteLine("5. Vyhledání dle autora");
     Console.WriteLine("6. Vyhledání dle roku");
-    Console.WriteLine("7. Konec programu");
-    ConsoleKeyInfo vyber = Console.ReadKey();
-    switch (vyber.Key)
+    Console.WriteLine("7. Konec programu (potřeba pro uložení");
+    ConsoleKeyInfo vyber = Console.ReadKey(); //diky tomuto staci kliknout pouze klavesu a neni potreba klikat enter
+    switch (vyber.Key) //pouzity case protoze jsou super
     {
         //pridani
         case ConsoleKey.D1:
@@ -31,23 +31,25 @@ while (!exit)
             knihovna.OdebratKnihu();
             Console.Clear();
             break;
-        //inventar
+        //vypis knih
         case ConsoleKey.D3:
         case ConsoleKey.NumPad3:
             Console.Clear();
             knihovna.VypisKnih();
             break;
-        //vyhledani dle autora
+        //vyhledani dle nazvu
         case ConsoleKey.D4:
         case ConsoleKey.NumPad4:
             Console.Clear();
             knihovna.VyhledaniNazvu();
             break;
+            //vyhledani dle autora
         case ConsoleKey.D5:
         case ConsoleKey.NumPad5:
             Console.Clear();
             knihovna.VyhledaniAutor();
             break;
+            //vyhledani dle roku
         case ConsoleKey.D6:
         case ConsoleKey.NumPad6:
             Console.Clear();
@@ -56,8 +58,8 @@ while (!exit)
         //konec
         case ConsoleKey.D7:
         case ConsoleKey.NumPad7:
-            knihovna.Ulozeni(nazevSouboru);
-            exit = true;
+            knihovna.Ulozeni(nazevSouboru); //prepisuje soubor
+            exit = true; //kvuli tomuto se ukonci program
             Console.Clear();
             Console.WriteLine("Program byl ukončen :)");
             break;
