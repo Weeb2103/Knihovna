@@ -32,21 +32,27 @@ namespace Knihovna_knih
         }
         public void OdebratKnihu()
         {
+            znovu:
             try
-            {
-             znovu:
+            {           
                 foreach (Kniha kniha in knihy)
                 {
                     Console.WriteLine($"{(knihy.IndexOf(kniha) + 1)}) {kniha.Nazev} - {kniha.Autor} - {kniha.Rok}");
                 }
                 Console.WriteLine("--------------------------");
                 Console.WriteLine("Napiš číslo řádku produktu který chceš odebrat a ukonči odebírání pomocí čísla 0");
+                int delka = knihy.Count();
                 int indexListu = int.Parse(Console.ReadLine()) - 1;
                 if (indexListu == 0)
                 {
                     return;
                 }
-                else 
+                if (delka < indexListu)
+                {
+                    Console.Clear();
+                    goto znovu;
+                }
+                else if (delka >= indexListu)  
                 {
                     knihy.RemoveAt(indexListu);
                     Console.Clear();
@@ -55,7 +61,9 @@ namespace Knihovna_knih
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Chyba při odebírání produktu:   {ex.Message}");
+                Console.Clear();
+                Console.WriteLine($"Chyba při odebírání produktu: {ex.Message}");
+                goto znovu;
             }
         }
         public void VypisKnih()
