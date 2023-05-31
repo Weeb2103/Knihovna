@@ -9,6 +9,7 @@ namespace Knihovna_knih
     class Knihovna
     {
         private List<Kniha> knihy = new List<Kniha>();
+        //pridani knihy
         public void PridatKnihy()
         {
             Kniha kniha = new Kniha();
@@ -18,7 +19,7 @@ namespace Knihovna_knih
                 kniha.Nazev = Console.ReadLine();
                 Console.Write("Napiš autora (Jen přijmení):");
                 string autor = Console.ReadLine();
-                kniha.Autor = char.ToUpper(autor[0]) + autor.Substring(1).ToLower();
+                kniha.Autor = char.ToUpper(autor[0]) + autor.Substring(1).ToLower(); //aby vzdy bylo prijmeni velkym pismenem u nazvu ne protoze muze byt naschval nazev malým pismen u knih
                 Console.Write("Napiš rok:");
                 kniha.Rok = int.Parse(Console.ReadLine());
                 knihy.Add(kniha);
@@ -30,6 +31,7 @@ namespace Knihovna_knih
                 Console.WriteLine("Chyba při přidávání produktu: " + ex.Message);
             }
         }
+        //odebirani knih
         public void OdebratKnihu()
         {
             znovu:
@@ -47,7 +49,7 @@ namespace Knihovna_knih
                 {
                     return;
                 }
-                if (delka < indexListu)
+                if (delka < indexListu) //zajisteni chyby kdyz byste napsali vesti cislo nez je knih v listu
                 {
                     Console.Clear();
                     goto znovu;
@@ -66,6 +68,7 @@ namespace Knihovna_knih
                 goto znovu;
             }
         }
+        //vypis knih
         public void VypisKnih()
         {
             Console.WriteLine("Výpis knih");
@@ -76,6 +79,8 @@ namespace Knihovna_knih
             }
 
         }
+        //vyhledani dle nazvu
+        //zde jsem nepouzil psani velkym pismen jako u autora protoze kniha muze dle meho byt psana malym jako design nebo tak neco
         public void VyhledaniNazvu()
         {
             try
@@ -96,13 +101,14 @@ namespace Knihovna_knih
                 Console.WriteLine($"Chyba při vyhledání dle názvu {ex.Message}");
             }
         }
+        //vyhledani dle autora
         public void VyhledaniAutor()
         {
             try
             {
                 Console.Write("Zadej autora: ");
                 string hledanyAutor = Console.ReadLine();
-                hledanyAutor = hledanyAutor = char.ToUpper(hledanyAutor[0]) + hledanyAutor.Substring(1).ToLower();
+                hledanyAutor = hledanyAutor = char.ToUpper(hledanyAutor[0]) + hledanyAutor.Substring(1).ToLower(); //zajišteno psani velkeho pismena na zacatku
                 Console.Clear();
                 List<Kniha> nalezenaKniha = knihy.FindAll(knihy => knihy.Autor.Contains(hledanyAutor));
                 Console.WriteLine("Výpis knih dle autora");
@@ -117,6 +123,7 @@ namespace Knihovna_knih
              Console.WriteLine ($"Chyba při vyhledání dle autora {ex.Message}");
             }
         }
+        //vyhledani dle roku
         public void VyhledaniRok()
         {
             try
@@ -137,11 +144,12 @@ namespace Knihovna_knih
                 Console.WriteLine($"Chyba při vyhledání dle autora {ex.Message}");
             }
         }
+        //ukladani listu do budoucna
         public void Ulozeni(string nazevSouboru)
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter(nazevSouboru))
+                using (StreamWriter sw = new StreamWriter(nazevSouboru)) //vpise list do souboru
                 {
                     foreach (Kniha kniha in knihy)
                     {
@@ -156,19 +164,19 @@ namespace Knihovna_knih
                 Console.WriteLine($"Chyba při ukládání seznamu knih: {ex.Message}");
             }
         }
-
+        //Nacteni listu z minula
         public void Nacteni(string nazevSouboru)
         {
             try
             {
                 if (File.Exists(nazevSouboru))
                 {
-                    using (StreamReader sr = new StreamReader(nazevSouboru))
+                    using (StreamReader sr = new StreamReader(nazevSouboru)) //cte z souboru
                     {
                         string radek;
-                        while ((radek = sr.ReadLine()) != null)
+                        while ((radek = sr.ReadLine()) != null) //dokud nebude list prazdny
                         {
-                            string[] polozky = radek.Split(',');
+                            string[] polozky = radek.Split(','); //carkami se rozdeluji nazev,autor,rok
                             if (polozky.Length == 3)
                             {
                                 string nazev = polozky[0];
@@ -181,8 +189,7 @@ namespace Knihovna_knih
                                         Autor = autor,
                                         Rok = rok
                                     };
-                                    knihy.Add(kniha);
-                                
+                                    knihy.Add(kniha);                                
                             }
                         }
                     }
