@@ -5,13 +5,13 @@ Zde si můžeš uložit své knihy jako kdyby to byla tvá knihovna.
 
 ## Download
 
-[DOWNLOAD FREE](https://github.com/Weeb2103/Knihovna/releases/download/Release/Knihovna.zip)
+[DOWNLOAD FREE](https://github.com/Weeb2103/Knihovna/releases/download/v1.1.0/Release.zip)
 
 ## Donate
 
 [Donate](https://streamelements.com/flyguncz/tip)
 
-***It for my favorite streamer Melichar Oravec from Ostrava***
+***Its for my favorite streamer Melichar Oravec from Ostrava***
 
 ## License
 
