@@ -11,7 +11,7 @@ Zde si můžeš uložit své knihy jako kdyby to byla tvá knihovna.
 
 [Donate](https://streamelements.com/flyguncz/tip)
 
-***It for my favorite streamer Melichar Oravec from Ostrava***
+***Its for my favorite streamer Melichar Oravec from Ostrava***
 
 ## License
 
